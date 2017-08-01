@@ -1,0 +1,146 @@
+body {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.main-button {
+  height: 250px;
+  width: 250px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.circle {
+  border-radius: 50%;
+  border: 10px solid black;
+  overflow: hidden;
+  position: relative;
+}
+
+.button-container {
+  display: flex;
+  text-align: center;
+}
+
+#green {
+  background-color: #195D00;
+  border-bottom: 5px solid black;
+  border-right: 5px solid black;
+}
+#red {
+  background-color: #890016;
+  border-bottom: 5px solid black;
+  border-left: 5px solid black;
+}
+#yellow{
+  background-color: #E1C800;
+  border-top: 5px solid black;
+  border-right: 5px solid black;
+}
+#blue {
+  background-color: #000283;
+  border-top: 5px solid black;
+  border-left: 5px solid black;
+}
+
+#turn-display {
+  font-size:30px;
+  width: 70px;
+  height: 50px;
+  border-radius: 10px;
+  border: 3px solid white;
+  top: 140px;
+  left: 40px;
+}
+
+#strict,
+#strict-display,
+#start {
+  border-radius: 50%;
+}
+
+.strict-group > div,
+.start-group > div {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+}
+
+.start-group {
+  top: 155px;
+  left: 140px;
+}
+
+#start {
+  background-color: #13ff7c;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+#simon-logo {
+  width: 200px;
+  top: 65px;
+  left: 35px;
+}
+
+.strict-group {
+  top: 144px;
+  left: 190px;
+}
+
+#strict {
+  background-color: #1c8cff;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+#strict-display {
+  background-color: #00a74a;
+  width: 6px;
+  height: 6px;
+}
+
+.control-label {
+  font-size: 12px;
+}
+
+.control-panel {
+  font-family: Russo One;
+  color: white;
+  height: 270px;
+  width: 270px;
+  background-color: black;
+  position: absolute;
+  top: 120px;
+  left: 120px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.control-panel > * {
+  position: absolute;
+}
+
+body {
+  font-size: 0;
+  font-family: arial, sans-serif;
+  background-color: #EEEECC;
+}
+
+button {
+  width: 300px;
+}
+
+span {
+  font-size: 16px;
+}
+
+#heading {
+  color: white;
+}
