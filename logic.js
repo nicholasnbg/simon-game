@@ -6,6 +6,9 @@ $(document).ready(function(){
   var computerTurns = [];
   var computerTurnsIndex = [];
   var turnArray = [];
+  var level = 1;
+  var mode = 'standard';
+  var errorCount = 0;
   var colors = [
     {
       color: 'green',
@@ -41,6 +44,7 @@ $(document).ready(function(){
       console.log('starting game');
       start = true;
       turn = 1;
+      updateTurnDisplay(level);
       setTimeout(function(){
         highlightTurns(turn)},700);
     }
@@ -63,7 +67,6 @@ $(document).ready(function(){
         index = i;
       }
     }
-    highlightButton(color, index);
     //check human and comp turns here
     var match = true
 
@@ -74,19 +77,40 @@ $(document).ready(function(){
       }
     });
     if(match){
+      highlightButton(color, index);
       if(turnArray.length == turn){
         turn ++;
         setTimeout(function(){
-          highlightTurns(turn);
+          highlightTurns(turn, 'no');
         },1500);
       }
     } else{
-      console.log('whoops');
+      errorCount ++;
+
       wrongTurn();
     }
 
   };
 
+  function wrongTurn(){
+    console.log('running wrong turn');
+    if(errorCount <3){
+      var triesRem = 3 - errorCount;
+      var errorText = 'Whoops! Try again. You have '+ triesRem + ' tries remaining!';
+      alert(errorText);
+      highlightTurns(turn, 'yes');
+    } else if (errorCount===3){
+      alert('Game over, better luck next time!');
+      start = false;
+      level = 1;
+      computerTurns=[];
+      computerTurnsIndex=[];
+      turnArray=[];
+      errorCount=0;
+      updateTurnDisplay(level);
+    }
+
+  };
 
   function pickRandom(){
     return Math.floor(Math.random()*4);
@@ -100,8 +124,12 @@ $(document).ready(function(){
     }
   };
 
-  function highlightTurns(turn){
+  function highlightTurns(turn, fromError){
     currentTurn = 'comp';
+    if(fromError == 'no'){
+      level ++
+    }
+    updateTurnDisplay(level);
     let i = 0;
     var runTurns =  setInterval(function(){
       console.log(i);
@@ -123,6 +151,14 @@ $(document).ready(function(){
       $('#'+color).css('background-color',colors[index].highlight);
       setTimeout(function(){
         $('#'+color).css('background-color',colors[index].unhighlight);
-      },800);
+      },650);
+    };
+
+    function updateTurnDisplay(level){
+      var string = level.toString();
+      if(level<10){
+        string = '0'+string;
+      }
+      $('#turn-display').html(string);
     };
 });

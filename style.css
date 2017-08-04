@@ -10,8 +10,10 @@ body {
 
 .container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+
 }
 
 
@@ -20,6 +22,7 @@ body {
   border: 10px solid black;
   overflow: hidden;
   position: relative;
+    margin-bottom: 30px;
 }
 
 .button-container {
@@ -56,6 +59,19 @@ body {
   border: 3px solid white;
   top: 140px;
   left: 40px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-box {
+  width:70%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 150%;
+  background: white;
+  height: 100px;
 }
 
 #strict,
